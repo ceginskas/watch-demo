@@ -34,6 +34,7 @@ class ProductListItem extends Component {
               product.data.elements.filter(item => item.name === 'name')[0]
                 .value
             }
+            IsListItem={true}
             Price={
               product.data.elements.filter(item => item.name === 'price')[0]
                 .value.value

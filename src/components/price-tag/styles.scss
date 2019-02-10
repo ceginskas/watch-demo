@@ -1,0 +1,13 @@
+.price-tag {
+  position: absolute;
+  right: 0;
+  .product-heading--is-list-item & {
+    background: #000e22;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    color: #fff;
+    padding: 20px;
+  }
+
+  font-weight: 400;
+}

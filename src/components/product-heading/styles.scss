@@ -1,11 +1,16 @@
 .product-heading {
+  margin-left: 10px;
+  max-width: 500px;
   text-transform: uppercase;
-
-  .product-info & {
-    margin-left: 10px;
+  h3 {
+    align-items: center;
+    display: flex;
+    position: relative;
   }
-}
 
-.price-tag {
-  font-weight: 400;
+  &--is-list-item {
+    margin-left: unset;
+    max-width: unset;
+    width: 100%;
+  }
 }
