@@ -11,10 +11,11 @@ const ProductHeading = props => {
 
   return (
     <div className={headingCss}>
-      <h3>
-        {props.Heading}
-        <PriceTag {...props} />
-      </h3>
+      <div className="product-heading__title">
+        <h3>{props.Heading}</h3>
+      </div>
+
+      <PriceTag {...props} />
     </div>
   );
 };

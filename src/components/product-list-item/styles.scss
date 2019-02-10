@@ -1,8 +1,16 @@
+@import '../../framework/scss/breakpoints.scss';
+
 .product-list-item {
-  border-bottom: 2px solid #000e22;
+  border-bottom: 1px solid #000e22;
   border-bottom-right-radius: 10px;
   cursor: pointer;
   margin-bottom: 30px;
+
+  @include breakpoint(medium) {
+    &:hover {
+      border-color: rgba(#000e22, 0.6);
+    }
+  }
 
   &__wrapper {
     align-items: center;

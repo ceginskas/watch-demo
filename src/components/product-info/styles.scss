@@ -3,9 +3,11 @@
 .product-info {
   display: block;
   margin: 0 20px;
+  padding: 10px;
 
-  @include breakpoint(large) {
+  @include breakpoint(medium) {
     margin: 0;
+    padding: 30px;
   }
 
   &__content {
@@ -15,8 +17,6 @@
 
     @include breakpoint(large) {
       flex-direction: row;
-      margin: 0 40px 0 0;
-      padding-right: 25px;
     }
 
     &--is-loaded {
@@ -24,11 +24,12 @@
       transition: all 0.5s ease;
     }
   }
-}
-.description {
-  border-bottom: 2px solid #000;
-  border-top: 2px solid #000;
-  font-style: italic;
-  line-height: 1.6;
-  padding: 20px 0;
+
+  &__description {
+    border-bottom: 2px solid #000;
+    border-top: 2px solid #000;
+    font-style: italic;
+    line-height: 1.6;
+    padding: 20px 0;
+  }
 }

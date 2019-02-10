@@ -18,7 +18,7 @@ const ProductInfo = props => {
   const handleLoadedContent = () => {
     setTimeout(function() {
       setContentLoaded(!contentLoaded);
-    }, 100);
+    }, 150);
   };
 
   return (
@@ -29,7 +29,7 @@ const ProductInfo = props => {
       />
       <div className={productInfoContentCss}>
         <div className="product-info__text">
-          <p className="description">
+          <p className="product-info__description">
             {elements.filter(item => item.name === 'description')[0].value}
           </p>
           <ProductExtendedInfo elements={elements} />

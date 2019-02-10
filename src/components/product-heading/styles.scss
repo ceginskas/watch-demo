@@ -1,14 +1,21 @@
+@import '../../framework/scss/breakpoints.scss';
+
 .product-heading {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
   margin-left: 10px;
-  max-width: 500px;
+  overflow: auto;
+  position: relative;
   text-transform: uppercase;
-  h3 {
-    align-items: center;
-    display: flex;
-    position: relative;
+
+  @include breakpoint(medium) {
+    flex-direction: row;
+    max-width: 510px;
   }
 
   &--is-list-item {
+    flex-direction: row;
     margin-left: unset;
     max-width: unset;
     width: 100%;
