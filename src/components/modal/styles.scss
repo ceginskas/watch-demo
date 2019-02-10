@@ -1,33 +1,39 @@
 @import '../../framework/scss/globals.scss';
+@import '../../framework/scss/breakpoints.scss';
 
 .modal {
-  @include GridWrapper();
   background-color: rgba(#000, 0.4);
   bottom: 0;
   height: 100%;
   left: 0;
-  overflow: auto;
+  overflow: scroll;
   position: fixed;
   right: 0;
   top: 0;
   width: 100%;
   z-index: 100;
 
+  @include breakpoint(medium) {
+    @include GridWrapper();
+  }
+
   &__close {
-    border: none;
+    background: none;
+    border: 1px solid transparent;
+    border-radius: 25px;
     cursor: pointer;
     float: right;
-    height: 25px;
+    height: 40px;
     position: relative;
-    width: 25px;
+    width: 40px;
 
     &:after,
     &:before {
       border: 1px solid #000;
       content: '';
-      left: 0;
+      left: 9px;
       position: absolute;
-      width: 100%;
+      width: 50%;
     }
 
     &:after {
@@ -36,14 +42,22 @@
     &:before {
       transform: rotate(45deg);
     }
+
+    &:hover {
+      border-color: #000;
+      transition: all 0.3s;
+    }
   }
 
   &__content {
-    @include GridContent();
     background-color: #fff;
-    height: auto;
-    margin: 100px 10px 10px 10px;
-    padding: 30px;
-    width: calc(100% - 60px);
+    margin: 100px 0px;
+    width: 100%;
+
+    @include breakpoint(medium) {
+      @include GridContent();
+      padding: 30px;
+      width: calc(100% - 60px);
+    }
   }
 }

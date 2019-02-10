@@ -1,0 +1,17 @@
+@import '../../framework/scss/breakpoints.scss';
+
+.image {
+  display: flex;
+  height: 300px;
+  justify-content: center;
+  width: 100%;
+
+  @include breakpoint(large) {
+    height: 400px;
+    width: 300px;
+  }
+
+  img {
+    height: 100%;
+  }
+}

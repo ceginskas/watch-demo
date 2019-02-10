@@ -1,0 +1,11 @@
+.product-heading {
+  text-transform: uppercase;
+
+  .product-info & {
+    margin-left: 10px;
+  }
+}
+
+.price-tag {
+  font-weight: 400;
+}

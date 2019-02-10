@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import * as Api from '../../api';
 import './styles.scss';
+import ProductHeading from '../product-heading';
 
 class ProductListItem extends Component {
   constructor(props) {
@@ -28,19 +29,16 @@ class ProductListItem extends Component {
         onClick={() => this.props.toggleModal(product)}
       >
         <div className="product-list-item__wrapper">
-          <h3>
-            {
+          <ProductHeading
+            Heading={
               product.data.elements.filter(item => item.name === 'name')[0]
                 .value
             }
-          </h3>
-          <p>
-            $
-            {
+            Price={
               product.data.elements.filter(item => item.name === 'price')[0]
                 .value.value
             }
-          </p>
+          />
         </div>
       </li>
     );

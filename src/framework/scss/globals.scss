@@ -1,8 +1,9 @@
+@import './breakpoints.scss';
+
 @mixin GridWrapper() {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-gap: 10px;
-  grid-auto-rows: 200px;
   grid-template-areas:
     '. a a a a .'
     '. a a a a .';
@@ -15,9 +16,16 @@
 }
 
 .content {
-  @include GridContent();
+  @include breakpoint(medium) {
+    @include GridContent();
+  }
 }
 
 .wrapper {
-  @include GridWrapper();
+  padding: 0 20px;
+
+  @include breakpoint(medium) {
+    @include GridWrapper();
+    padding: 0;
+  }
 }

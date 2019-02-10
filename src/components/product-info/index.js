@@ -1,32 +1,44 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './styles.scss';
+import Image from '../image';
+import classNames from 'classnames';
+import ProductHeading from '../product-heading';
+import ProductExtendedInfo from '../product-extended-info';
 
 const ProductInfo = props => {
-  console.log(props.data);
   const { elements } = props.data;
-  console.log(elements);
+
+  const [contentLoaded, setContentLoaded] = useState(false);
+
+  const productInfoContentCss = classNames({
+    'product-info__content': true,
+    'product-info__content--is-loaded': contentLoaded
+  });
+
+  const handleLoadedContent = () => {
+    setTimeout(function() {
+      setContentLoaded(!contentLoaded);
+    }, 100);
+  };
+
   return (
     <div className="product-info">
-      <h2> {elements.filter(item => item.name === 'name')[0].value}</h2>
-      <p>{elements.filter(item => item.name === 'description')[0].value}</p>
-      <p>
-        Price:{' $'}
-        <span>
-          {elements.filter(item => item.name === 'price')[0].value.value}
-        </span>
-      </p>
-      <p>
-        Article number:{' '}
-        <span>{elements.filter(item => item.name === 'sku')[0].value}</span>
-      </p>
-      <p>
-        Size:{' '}
-        <span>{elements.filter(item => item.name === 'size')[0].value}</span>
-      </p>
-      <p>
-        Color:{' '}
-        <span>{elements.filter(item => item.name === 'color')[0].value}</span>
-      </p>
+      <ProductHeading
+        Heading={elements.filter(item => item.name === 'name')[0].value}
+        Price={elements.filter(item => item.name === 'price')[0].value.value}
+      />
+      <div className={productInfoContentCss}>
+        <div className="product-info__text">
+          <p className="description">
+            {elements.filter(item => item.name === 'description')[0].value}
+          </p>
+          <ProductExtendedInfo elements={elements} />
+        </div>
+        <Image
+          {...elements.filter(item => item.name === 'main_image')[0].value}
+          contentLoaded={() => handleLoadedContent()}
+        />
+      </div>
     </div>
   );
 };
