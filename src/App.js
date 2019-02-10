@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
-import './App.scss';
-import ProductList from './components/product-list';
+import './framework/scss/globals.scss';
+import Layout from './framework/layouts';
+import ProductPage from './pages/ProductPage';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <main>
-          <ProductList />
-        </main>
+        <Layout>
+          <ProductPage />
+        </Layout>
       </div>
     );
   }

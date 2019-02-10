@@ -1,0 +1,23 @@
+@mixin GridWrapper() {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: 200px;
+  grid-template-areas:
+    '. a a a a .'
+    '. a a a a .';
+}
+
+@mixin GridContent() {
+  grid-area: a;
+  justify-self: center;
+  width: 100%;
+}
+
+.content {
+  @include GridContent();
+}
+
+.wrapper {
+  @include GridWrapper();
+}

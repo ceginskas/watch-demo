@@ -1,0 +1,49 @@
+@import '../../framework/scss/globals.scss';
+
+.modal {
+  @include GridWrapper();
+  background-color: rgba(#000, 0.4);
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  overflow: auto;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+
+  &__close {
+    border: none;
+    cursor: pointer;
+    float: right;
+    height: 25px;
+    position: relative;
+    width: 25px;
+
+    &:after,
+    &:before {
+      border: 1px solid #000;
+      content: '';
+      left: 0;
+      position: absolute;
+      width: 100%;
+    }
+
+    &:after {
+      transform: rotate(-45deg);
+    }
+    &:before {
+      transform: rotate(45deg);
+    }
+  }
+
+  &__content {
+    @include GridContent();
+    background-color: #fff;
+    height: auto;
+    margin: 100px 10px 10px 10px;
+    padding: 30px;
+    width: calc(100% - 60px);
+  }
+}

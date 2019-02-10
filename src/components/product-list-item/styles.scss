@@ -1,0 +1,8 @@
+.product-list-item {
+  cursor: pointer;
+
+  &__wrapper {
+    align-items: center;
+    display: flex;
+  }
+}
