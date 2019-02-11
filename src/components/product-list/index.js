@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import './styles.scss';
 import ProductListItem from '../product-list-item';
 import Modal from '../modal';
 import ProductInfo from '../product-info';
 
 const ProductList = props => {
-  const [modal, setModal] = useState(false);
+  const [isModalActive, setModal] = useState(false);
 
   const toggleModal = (getProduct = false, product) => {
-    setModal(!modal);
+    setModal(!isModalActive);
     if (getProduct && product) props.loadProduct(product);
   };
 
@@ -16,10 +16,9 @@ const ProductList = props => {
     props.loadAllProducts();
   }, []);
 
-  console.log(props);
   return (
-    <div className="product-list">
-      <ul>
+    <Fragment>
+      <ul className="product-list">
         {props.products &&
           props.products.map((product, index) => {
             return (
@@ -31,12 +30,12 @@ const ProductList = props => {
             );
           })}
       </ul>
-      {modal && (
+      {isModalActive && (
         <Modal closeModal={() => toggleModal()}>
           <ProductInfo {...props} />
         </Modal>
       )}
-    </div>
+    </Fragment>
   );
 };
 

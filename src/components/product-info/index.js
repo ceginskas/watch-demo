@@ -8,27 +8,26 @@ const ProductInfo = props => {
   const { chosenProduct, chosenProductImage } = props;
   if (!chosenProduct.elements) return null;
 
+  const getProductElement = name => {
+    const element = chosenProduct.elements.find(item => item.name === name)
+      .value;
+    return element;
+  };
+
   return (
     <div className="product-info">
       <ProductHeading
-        Heading={
-          chosenProduct.elements.filter(item => item.name === 'name')[0].value
-        }
-        Price={
-          chosenProduct.elements.filter(item => item.name === 'price')[0].value
-            .value
-        }
+        Heading={getProductElement('name')}
+        Price={getProductElement('price').value}
       />
       <div className="product-info__content">
         <div className="product-info__text">
           <p className="product-info__description">
-            {
-              chosenProduct.elements.filter(
-                item => item.name === 'description'
-              )[0].value
-            }
+            {getProductElement('description')}
           </p>
-          <ProductExtendedInfo {...chosenProduct} />
+          <ProductExtendedInfo
+            getProductElement={name => getProductElement(name)}
+          />
         </div>
         <Image chosenProductImage={chosenProductImage} />
       </div>

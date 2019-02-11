@@ -1,24 +1,25 @@
 import * as Api from '../../api';
 
 export function loadAllProducts() {
-  return dispatch => {
-    Api.products().then(response => {
-      for (let i = 0; i < response.data.length; i++) {
-        Api.products(response.data[i].id).then(response => {
-          dispatch(getAllProducts(response));
-        });
-      }
+  return async dispatch => {
+    const response = await Api.products();
+    response.data.forEach(async product => {
+      const fullProduct = await Api.products(product.id);
+      dispatch(getAllProducts(fullProduct));
     });
   };
 }
 
 export function loadProduct(product) {
-  return dispatch => {
-    Api.assets(
-      product.elements.filter(item => item.name === 'main_image')[0].value.id
-    ).then(response => {
-      dispatch(getProduct(product, response.data.uri));
-    });
+  return async dispatch => {
+    const foundImage = product.elements.find(
+      item => item.name === 'main_image'
+    );
+    if (foundImage) {
+      await Api.assets(foundImage.value.id).then(response => {
+        dispatch(getProduct(product, response.data.uri));
+      });
+    }
   };
 }
 

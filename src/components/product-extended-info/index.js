@@ -3,34 +3,23 @@ import './styles.scss';
 
 const ProductExtendendInfo = props => {
   return (
-    <div className="product-extended-info">
-      <ul>
-        <li>
-          <p>
-            Article number:{' '}
-            <span>
-              {props.elements.filter(item => item.name === 'sku')[0].value}
-            </span>
-          </p>
-        </li>
-        <li>
-          <p>
-            Color:{' '}
-            <span>
-              {props.elements.filter(item => item.name === 'color')[0].value}
-            </span>
-          </p>
-        </li>
-        <li>
-          <p>
-            Size:{' '}
-            <span>
-              {props.elements.filter(item => item.name === 'size')[0].value}
-            </span>
-          </p>
-        </li>
-      </ul>
-    </div>
+    <ul className="product-extended-info">
+      <li>
+        <p>
+          Article number: <span>{props.getProductElement('sku')}</span>
+        </p>
+      </li>
+      <li>
+        <p>
+          Color: <span>{props.getProductElement('color')}</span>
+        </p>
+      </li>
+      <li>
+        <p>
+          Size: <span>{props.getProductElement('size')}</span>
+        </p>
+      </li>
+    </ul>
   );
 };
 
