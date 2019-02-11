@@ -5,10 +5,7 @@ const Modal = props => {
   return (
     <div className="modal">
       <div className="modal__content">
-        <button
-          className="modal__close"
-          onClick={() => props.closeModal(this)}
-        />
+        <button className="modal__close" onClick={() => props.closeModal()} />
         {props.children}
       </div>
     </div>

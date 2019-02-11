@@ -1,52 +1,43 @@
-import React, { Component } from 'react';
-import * as Api from '../../api';
+import React, { useState, useEffect } from 'react';
 import './styles.scss';
 import ProductListItem from '../product-list-item';
 import Modal from '../modal';
-import withModalInfo from '../containers/withModalInfo';
 import ProductInfo from '../product-info';
 
-class ProductList extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      products: null
-    };
-  }
+const ProductList = props => {
+  const [modal, setModal] = useState(false);
 
-  getProducts() {
-    Api.products().then(data => this.setState({ products: data }));
-  }
+  const toggleModal = (getProduct = false, product) => {
+    setModal(!modal);
+    if (getProduct && product) props.loadProduct(product);
+  };
 
-  componentDidMount() {
-    this.getProducts();
-  }
+  useEffect(() => {
+    props.loadAllProducts();
+  }, []);
 
-  render() {
-    return (
-      <div className="product-list">
-        <ul>
-          {this.state.products &&
-            this.state.products.total > 0 &&
-            this.state.products.data.map((product, index) => {
-              return (
-                <ProductListItem
-                  key={index}
-                  {...product}
-                  {...this.props}
-                  getTest={data => this.getTest(data)}
-                />
-              );
-            })}
-        </ul>
-        {this.props.modalIsOpen && (
-          <Modal closeModal={this.props.toggleModal}>
-            <ProductInfo {...this.props.modalInfo} />
-          </Modal>
-        )}
-      </div>
-    );
-  }
-}
+  console.log(props);
+  return (
+    <div className="product-list">
+      <ul>
+        {props.products &&
+          props.products.map((product, index) => {
+            return (
+              <ProductListItem
+                key={index}
+                product={product}
+                openModal={product => toggleModal(true, product)}
+              />
+            );
+          })}
+      </ul>
+      {modal && (
+        <Modal closeModal={() => toggleModal()}>
+          <ProductInfo {...props} />
+        </Modal>
+      )}
+    </div>
+  );
+};
 
-export default withModalInfo(ProductList);
+export default ProductList;

@@ -1,5 +1,5 @@
 import React from 'react';
-import ProductList from '../../components/product-list';
+import ProductContainer from '../../components/containers/product-container';
 
 const ProductPage = () => {
   return (
@@ -7,7 +7,7 @@ const ProductPage = () => {
       <main>
         <div className="wrapper">
           <div className="content">
-            <ProductList />
+            <ProductContainer />
           </div>
         </div>
       </main>

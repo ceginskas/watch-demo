@@ -1,49 +1,26 @@
-import React, { Component } from 'react';
-import * as Api from '../../api';
+import React from 'react';
 import './styles.scss';
 import ProductHeading from '../product-heading';
 
-class ProductListItem extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      product: null
-    };
-  }
-
-  getProduct(id) {
-    Api.products(id).then(data => this.setState({ product: data }));
-  }
-
-  componentDidMount() {
-    this.getProduct(this.props.id);
-  }
-
-  render() {
-    const { product } = this.state;
-    if (!product) return null;
-    return (
-      <li
-        className="product-list-item"
-        onClick={() => this.props.toggleModal(product)}
-      >
-        <div className="product-list-item__wrapper">
-          <ProductHeading
-            Heading={
-              product.data.elements.filter(item => item.name === 'name')[0]
-                .value
-            }
-            IsListItem={true}
-            Price={
-              product.data.elements.filter(item => item.name === 'price')[0]
-                .value.value
-            }
-          />
-        </div>
-      </li>
-    );
-  }
-}
+const ProductListItem = props => {
+  const { product, openModal } = props;
+  if (!product) return null;
+  return (
+    <li className="product-list-item" onClick={() => openModal(product)}>
+      <div className="product-list-item__wrapper">
+        <ProductHeading
+          Heading={
+            product.elements.filter(item => item.name === 'name')[0].value
+          }
+          IsListItem={true}
+          Price={
+            product.elements.filter(item => item.name === 'price')[0].value
+              .value
+          }
+        />
+      </div>
+    </li>
+  );
+};
 
 export default ProductListItem;

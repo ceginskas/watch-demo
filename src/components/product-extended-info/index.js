@@ -2,7 +2,6 @@ import React from 'react';
 import './styles.scss';
 
 const ProductExtendendInfo = props => {
-  console.log(props);
   return (
     <div className="product-extended-info">
       <ul>
