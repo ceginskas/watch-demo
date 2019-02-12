@@ -18,6 +18,9 @@ const productReducer = (state = defaultState, action) => {
         chosenProduct: action.chosenProduct,
         chosenProductImage: action.chosenProductImage
       };
+
+    default:
+      return state;
   }
 };
 
