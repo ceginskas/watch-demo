@@ -4,12 +4,14 @@ import * as actionCreators from '../actions/index.js';
 import ProductList from '../components/product/product-list';
 
 const ProductContainer = props => {
+  const { productReducer } = props;
   return (
     <ProductList
-      products={props.products}
+      isLoading={props.isLoading}
+      products={productReducer.products}
       loadAllProducts={() => props.loadAllProducts()}
-      chosenProduct={props.chosenProduct}
-      chosenProductImage={props.chosenProductImage}
+      chosenProduct={productReducer.chosenProduct}
+      chosenProductImage={productReducer.chosenProductImage}
       loadProduct={product => props.loadProduct(product)}
     />
   );

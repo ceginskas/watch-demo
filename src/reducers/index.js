@@ -1,18 +1,20 @@
+import { combineReducers } from 'redux';
+import * as Type from '../actions/types';
+
 let defaultState = {
   products: [],
   chosenProduct: [],
   chosenProductImage: ''
 };
-
 const productReducer = (state = defaultState, action) => {
   switch (action.type) {
-    case 'GET_ALL_PRODUCTS':
+    case Type.getAllProducts:
       return {
         ...state,
         products: [...state.products, action.products]
       };
 
-    case 'GET_PRODUCT':
+    case Type.getProduct:
       return {
         ...state,
         chosenProduct: action.chosenProduct,
@@ -24,4 +26,18 @@ const productReducer = (state = defaultState, action) => {
   }
 };
 
-export default productReducer;
+const isLoading = (state = false, action) => {
+  switch (action.type) {
+    case Type.requestProduct:
+      return true;
+    case Type.recievedProduct:
+      return false;
+    default:
+      return state;
+  }
+};
+
+export default combineReducers({
+  productReducer,
+  isLoading
+});

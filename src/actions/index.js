@@ -1,4 +1,5 @@
 import * as Api from '../api';
+import * as Type from './types';
 
 export function loadAllProducts() {
   return async dispatch => {
@@ -16,8 +17,14 @@ export function loadProduct(product) {
       item => item.name === 'main_image'
     );
     if (foundImage) {
+      dispatch({
+        type: Type.requestProduct
+      });
       await Api.assets(foundImage.value.id).then(response => {
         dispatch(getProduct(product, response.data.uri));
+      });
+      dispatch({
+        type: Type.recievedProduct
       });
     }
   };
@@ -25,15 +32,27 @@ export function loadProduct(product) {
 
 export function getAllProducts(product) {
   return {
-    type: 'GET_ALL_PRODUCTS',
+    type: Type.getAllProducts,
     products: product.data
   };
 }
 
 export function getProduct(product, image) {
   return {
-    type: 'GET_PRODUCT',
+    type: Type.getProduct,
     chosenProduct: product,
     chosenProductImage: image
+  };
+}
+
+export function RequestProduct() {
+  return {
+    type: Type.requestProduct
+  };
+}
+
+export function ReceivedProduct() {
+  return {
+    type: Type.recievedProduct
   };
 }

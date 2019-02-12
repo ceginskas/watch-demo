@@ -3,11 +3,17 @@
 .product-info {
   display: block;
   margin: 0 20px;
+  opacity: 0;
   padding: 10px;
 
   @include breakpoint(medium) {
-    margin: 0;
+    margin: 30px;
     padding: 30px;
+  }
+
+  &--is-loaded {
+    opacity: 1;
+    transition: all 0.8s ease;
   }
 
   &__content {
@@ -16,10 +22,6 @@
 
     @include breakpoint(large) {
       flex-direction: row;
-    }
-
-    &--is-loaded {
-      transition: all 0.5s ease;
     }
   }
 

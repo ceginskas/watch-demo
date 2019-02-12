@@ -30,11 +30,12 @@ const ProductList = props => {
             );
           })}
       </ul>
-      {isModalActive && (
+      {isModalActive &&
         <Modal closeModal={() => toggleModal()}>
           <ProductInfo {...props} />
         </Modal>
-      )}
+      }
+
     </Fragment>
   );
 };

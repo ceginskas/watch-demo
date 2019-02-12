@@ -3,10 +3,12 @@ import './styles.scss';
 import Image from '../../image';
 import ProductHeading from '../product-heading';
 import ProductExtendedInfo from '../product-extended-info';
+import classNames from 'classnames';
 
 const ProductInfo = props => {
   const { chosenProduct, chosenProductImage } = props;
   if (!chosenProduct.elements) return null;
+
 
   const getProductElement = name => {
     const element = chosenProduct.elements.find(item => item.name === name)
@@ -14,8 +16,13 @@ const ProductInfo = props => {
     return element;
   };
 
+  const productInfoCss = classNames({
+    'product-info': true,
+    'product-info--is-loaded': !props.isLoading
+  });
+
   return (
-    <div className="product-info">
+    <div className={productInfoCss}>
       <ProductHeading
         Heading={getProductElement('name')}
         Price={getProductElement('price').value}
