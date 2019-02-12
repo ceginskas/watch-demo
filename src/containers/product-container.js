@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import * as actionCreators from '../actions/index.js';
-import ProductList from '../product-list';
+import ProductList from '../components/product/product-list';
 
 const ProductContainer = props => {
   return (

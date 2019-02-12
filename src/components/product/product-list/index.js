@@ -1,7 +1,7 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import './styles.scss';
 import ProductListItem from '../product-list-item';
-import Modal from '../modal';
+import Modal from '../../modal';
 import ProductInfo from '../product-info';
 
 const ProductList = props => {

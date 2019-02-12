@@ -1,6 +1,6 @@
 import React from 'react';
 import './styles.scss';
-import Image from '../image';
+import Image from '../../image';
 import ProductHeading from '../product-heading';
 import ProductExtendedInfo from '../product-extended-info';
 
