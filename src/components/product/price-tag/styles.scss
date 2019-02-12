@@ -6,9 +6,12 @@
   }
 
   .product-info & {
+    h3 {
+      margin: 0;
+    }
     @include breakpoint(medium) {
       position: absolute;
-      right: 0;
+      right: 10px;
     }
   }
 

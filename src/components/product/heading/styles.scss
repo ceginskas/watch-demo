@@ -11,7 +11,6 @@
 
   @include breakpoint(medium) {
     flex-direction: row;
-    max-width: 510px;
   }
 
   &--is-list-item {

@@ -1,20 +1,14 @@
 import React from 'react';
 import './styles.scss';
 import Image from '../../image';
-import ProductHeading from '../product-heading';
-import ProductExtendedInfo from '../product-extended-info';
+import ProductHeading from '../heading';
+import ProductExtendedInfo from '../extended-info';
 import classNames from 'classnames';
 
 const ProductInfo = props => {
-  const { chosenProduct, chosenProductImage } = props;
+  const { chosenProduct, chosenProductImage, getProductElement } = props;
   if (!chosenProduct.elements) return null;
 
-
-  const getProductElement = name => {
-    const element = chosenProduct.elements.find(item => item.name === name)
-      .value;
-    return element;
-  };
 
   const productInfoCss = classNames({
     'product-info': true,
@@ -23,17 +17,17 @@ const ProductInfo = props => {
 
   return (
     <div className={productInfoCss}>
-      <ProductHeading
-        Heading={getProductElement('name')}
-        Price={getProductElement('price').value}
-      />
       <div className="product-info__content">
         <div className="product-info__text">
+          <ProductHeading
+            Heading={getProductElement(chosenProduct, 'name')}
+            Price={getProductElement(chosenProduct, 'price').value}
+          />
           <p className="product-info__description">
-            {getProductElement('description')}
+            {getProductElement(chosenProduct, 'description')}
           </p>
           <ProductExtendedInfo
-            getProductElement={name => getProductElement(name)}
+            {...props}
           />
         </div>
         <Image chosenProductImage={chosenProductImage} />

@@ -1,6 +1,6 @@
 import React from 'react';
 import './styles.scss';
-import ProductHeading from '../product-heading';
+import ProductHeading from '../heading';
 
 const ProductListItem = props => {
   const { product, openModal } = props;
@@ -10,11 +10,11 @@ const ProductListItem = props => {
       <div className="product-list-item__wrapper">
         <ProductHeading
           Heading={
-            product.elements.filter(item => item.name === 'name')[0].value
+            product.elements.find(item => item.name === 'name').value
           }
           IsListItem={true}
           Price={
-            product.elements.filter(item => item.name === 'price')[0].value
+            product.elements.find(item => item.name === 'price').value
               .value
           }
         />

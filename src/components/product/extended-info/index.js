@@ -2,21 +2,22 @@ import React from 'react';
 import './styles.scss';
 
 const ProductExtendendInfo = props => {
+  const { getProductElement, chosenProduct } = props;
   return (
     <ul className="product-extended-info">
       <li>
         <p>
-          Article number: <span>{props.getProductElement('sku')}</span>
+          {`Article number: ${getProductElement(chosenProduct, 'sku')}`}
         </p>
       </li>
       <li>
         <p>
-          Color: <span>{props.getProductElement('color')}</span>
+          {`Color: ${getProductElement(chosenProduct, 'color')}`}
         </p>
       </li>
       <li>
         <p>
-          Size: <span>{props.getProductElement('size')}</span>
+          {`Size: ${getProductElement(chosenProduct, 'size')}`}
         </p>
       </li>
     </ul>
