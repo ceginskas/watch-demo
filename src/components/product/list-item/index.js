@@ -12,7 +12,7 @@ const ProductListItem = props => {
           Heading={
             product.elements.find(item => item.name === 'name').value
           }
-          IsListItem={true}
+          Modifiers={{ 'product-heading--is-list-item': true }}
           Price={
             product.elements.find(item => item.name === 'price').value
               .value

@@ -6,7 +6,7 @@ import PriceTag from '../price-tag';
 const ProductHeading = props => {
   const headingCss = classNames({
     'product-heading': true,
-    'product-heading--is-list-item': props.IsListItem
+    ...props.Modifiers
   });
 
   return (

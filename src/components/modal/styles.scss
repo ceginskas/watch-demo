@@ -1,8 +1,7 @@
 @import '../../framework/scss/globals.scss';
-@import '../../framework/scss/breakpoints.scss';
 
 .modal {
-  background-color: rgba(#000, 0.4);
+  background-color: rgba($black, 0.4);
   bottom: 0;
   height: 100%;
   left: 0;
@@ -30,7 +29,7 @@
 
     &:after,
     &:before {
-      border: 1px solid #000;
+      border: 1px solid $black;
       content: '';
       left: 9px;
       position: absolute;
@@ -45,13 +44,13 @@
     }
 
     &:hover {
-      border-color: #000;
+      border-color: $black;
       transition: all 0.3s;
     }
   }
 
   &__content {
-    background-color: #fff;
+    background-color: $white;
     margin: 100px 0px;
     width: 100%;
 

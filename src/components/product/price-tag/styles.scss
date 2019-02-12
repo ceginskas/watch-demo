@@ -1,4 +1,4 @@
-@import '../../../framework/scss/breakpoints.scss';
+@import '../../../framework/scss/globals.scss';
 
 .price-tag {
   h3 {
@@ -16,10 +16,10 @@
   }
 
   .product-heading--is-list-item & {
-    background: #000e22;
+    background: $darknavy;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
-    color: #fff;
+    color: $white;
     padding: 0 10px;
     position: absolute;
     right: 0;
@@ -31,7 +31,7 @@
 
   @include breakpoint(medium) {
     .product-heading--is-list-item:hover & {
-      background: rgba(#000e22, 0.6);
+      background: rgba($darknavy, 0.6);
     }
   }
 }

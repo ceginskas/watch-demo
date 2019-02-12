@@ -1,4 +1,4 @@
-@import '../../../framework/scss/breakpoints.scss';
+@import '../../../framework/scss/globals.scss';
 
 .product-info {
   display: block;
@@ -32,8 +32,8 @@
   }
 
   &__description {
-    border-bottom: 2px solid #000;
-    border-top: 2px solid #000;
+    border-bottom: 2px solid $black;
+    border-top: 2px solid $black;
     font-style: italic;
     line-height: 1.6;
     padding: 20px 0;

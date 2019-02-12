@@ -1,14 +1,14 @@
-@import '../../../framework/scss/breakpoints.scss';
+@import '../../../framework/scss/globals.scss';
 
 .product-list-item {
-  border-bottom: 1px solid #000e22;
+  border-bottom: 1px solid $darknavy;
   border-bottom-right-radius: 10px;
   cursor: pointer;
   margin-bottom: 30px;
 
   @include breakpoint(medium) {
     &:hover {
-      border-color: rgba(#000e22, 0.6);
+      border-color: rgba($darknavy, 0.6);
     }
   }
 
