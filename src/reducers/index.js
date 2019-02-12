@@ -5,21 +5,19 @@ let defaultState = {
 };
 
 const productReducer = (state = defaultState, action) => {
-  if (action.type === 'GET_ALL_PRODUCTS') {
-    return {
-      ...state,
-      products: [...state.products, action.products]
-    };
-  } else if (action.type === 'GET_PRODUCT') {
-    return {
-      ...state,
-      chosenProduct: action.chosenProduct,
-      chosenProductImage: action.chosenProductImage
-    };
-  } else {
-    return {
-      ...state
-    };
+  switch (action.type) {
+    case 'GET_ALL_PRODUCTS':
+      return {
+        ...state,
+        products: [...state.products, action.products]
+      };
+
+    case 'GET_PRODUCT':
+      return {
+        ...state,
+        chosenProduct: action.chosenProduct,
+        chosenProductImage: action.chosenProductImage
+      };
   }
 };
 
