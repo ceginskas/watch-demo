@@ -20,9 +20,10 @@ export function loadProduct(product) {
       dispatch({
         type: Type.requestProduct
       });
-      await Api.assets(foundImage.value.id).then(response => {
-        dispatch(getProduct(product, response.data.uri));
-      });
+      const response = await Api.assets(foundImage.value.id);
+
+      dispatch(getProduct(product, response.data.uri));
+
       dispatch({
         type: Type.recievedProduct
       });
