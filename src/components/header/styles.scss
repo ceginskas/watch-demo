@@ -1,5 +1,7 @@
+@import '../../framework/scss/globals.scss';
+
 .header {
-  background: #000e22;
+  background: $darknavy;
   display: flex;
   height: 100px;
   justify-content: center;

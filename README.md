@@ -44,4 +44,4 @@ Sass gives us the option to write nested syntax, create mixins, variables which 
 
 ## Did I intentionally leave stuff out?
 As you can read on the CSS Grid part, I chose to stay away from libraries like Bootstrap or Foundation.
-Due time constraint I chose not to implement css modules and lazy loading of images.
+Due time constraint I chose not to implement css modules, animation while loading product and lazy loading of images.
